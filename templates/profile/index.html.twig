@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page profil{% endblock %}
+
+{% block body %}
+<h1>Page profil de {{ app.user.email }}</h1>
+<p>Profil artiste : {% if "ROLE_ARTIST" in app.user.roles %} OUI{% else %} NON <a href="" class="btn btn-primary">Devenir artiste</a>{% endif %}</p>
+<p>Profil premium : {% if "ROLE_PREMIUM" in app.user.roles %} OUI{% else %} NON <a href="" class="btn btn-primary">Devenir premium</a>{% endif %}</p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes favoris{% endblock %}
+
+{% block body %}
+    <h1>Liste des favoris</h1>
+
+    {% for music in musics %}
+        {{ music.name }}
+        <a href="{{ path('delete_favorite', {'id': music.id}) }}" class="btn btn-primary">Retirer favoris</a>
+        <br>
+    {% endfor %}
+{% endblock %}

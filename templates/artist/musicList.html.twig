@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Liste de mes musiques
+{% endblock %}
+
+{% block body %}
+    <h1>Liste de mes musiques uploadées</h1>
+
+    {% for music in musics %}
+        {{ music.name }}
+        <br>
+        <audio controls src="{{ music.url }}">
+    </audio>
+        <br>
+        {{ music.views }}    
+        {% for category in music.category %}
+            {{ category.category }},
+
+        {% endfor %}
+        <a href="{{ path('delete_music', {'id': music.id}) }}" class="btn btn-primary">Supprimer la musique</a>
+    <br>
+    <br>
+    <br>
+    {% endfor %}
+
+{% endblock %}

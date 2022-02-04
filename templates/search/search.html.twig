@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+
+{# param redirection du controller #}
+{% set route = '?search=' ~ app.request.query.get('search') %}
+
+{# Affichage recherche artiste #}
+{% if artist is not null %}
+    {% for a in artist %}
+        {{ a.name }} <br>
+    {% endfor %}
+{% endif %}
+
+{# affichage recherche music #}
+{% if music is not null %}
+    {% for m in music %}
+        {{ m.name }}
+        {{ m.artist.name }}
+
+            {# affichage ajout playlist et si déjà dans playlist ou non #}
+            {% for playlist in app.user.playlist %}
+            {% set count = 0 %}
+                {% for pmusic in playlist.music %}
+                    {% if pmusic is same as m %}
+                        {% set count = count + 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% if count == 0 %}
+                {{playlist.name}}
+                    <a href="{{ path('add_to_playlist', {'idMusic': m.id, 'idPlaylist': playlist.id, 'route': route}) }}" class="btn btn-primary">Ajouter à la playlist</a>
+                {% endif %}
+            {% endfor %}
+            
+            {# Affichage si déja dans favoris ou non #}
+            {% set count2 = 0 %}
+            {% for favorite in m.users %}
+                {% if favorite is same as app.user %}
+                    {% set count2 = count2 + 1 %}
+                {% endif %}
+            {% endfor %}
+            {% if count2 == 0 %}
+                <a href="{{ path('add_favorite', {'id': m.id, 'route': route}) }}" class="btn btn-primary">Ajouter favoris</a>
+            {% endif %}
+
+        <br>
+    {% endfor %}
+{% endif %}
+{% endblock %}

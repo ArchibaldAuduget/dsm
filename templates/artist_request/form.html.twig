@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devenir artiste{% endblock %}
+
+{% block body %}
+    <h1>Devenir artiste : Formulaire à remplir</h1>
+
+    {{form_start(formview)}}
+    {{form_errors(formview)}}
+
+    {{form_row(formview.artistName)}}
+    {{form_row(formview.description)}}
+    {{form_row(formview.demo)}}
+
+    {{form_row(formview.agreeTerms)}}
+    <button class="btn btn-primary">
+        <i class="fas fa-save">Envoyer</i>   
+    </button>
+
+    {{form_end(formview)}}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Liste de mes albums
+{% endblock %}
+
+{% block body %}
+    <h1>Liste de mes albums</h1>
+
+    {% for album in albums %}
+        {{ album.name }} <br>
+        <img src="{{ album.img }}" alt=""> <br>
+        
+
+
+  
+        {% for category in album.category %}
+            {{ category.category }},
+
+        {% endfor %}
+
+        {% for music in album.music %}
+            {{ music.name }}, <br>
+
+        {% endfor %}
+        <a href="{{ path('add_to_album', {'id': album.id}) }}" class="btn btn-primary">Ajouter musique à l'album</a>
+        <a href="{{ path('delete_to_album', {'id': album.id}) }}" class="btn btn-primary">Supprimer musique à l'album</a>
+        <a href="{{ path('delete_album', {'id': album.id}) }}" class="btn btn-primary">Supprimer l'album</a>
+        <a href="{{ path('edit_album', {'id': album.id}) }}" class="btn btn-primary">Modifier l'album</a>
+    <br>
+    <br>
+    <br>
+    {% endfor %}
+
+{% endblock %}

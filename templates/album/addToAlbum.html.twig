@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{album.name}} : ajout musique
+{% endblock %}
+
+{% block body %}
+    <h1>Ajout de musique dans l'album {{ album.name }}</h1>
+
+    {% for music in musics %}
+        {% if music.album is null %}
+            {{ music.name }}
+            {{ music.url }} 
+            <a href="{{ path('adding_script', {'idAlbum': album.id, 'idMusic': music.id} ) }}" class="btn btn-primary">Ajouter la musique</a> <br> <br>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

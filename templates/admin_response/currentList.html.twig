@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Demandes artiste
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des demandes artistes</h1>
+
+    {% for request in artistRequest %}
+        <p>{{request.artistName }}</p>
+        <p>{{ request.user.email }}</p>
+        <p>{{ request.status }}</p>
+        <a href="{{ path('response_read', {'id': request.id}) }}" class="btn btn-primary">Voir</a>
+    {% endfor %}
+{% endblock %}

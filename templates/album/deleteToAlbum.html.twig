@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{album.name}} : suppression musique
+{% endblock %}
+
+{% block body %}
+    <h1>Suppression de musique dans l'album {{ album.name }}</h1>
+
+    {% for music in musics %}
+        {% if music.album.id is defined %}
+            {% if music.album.id is same as album.id %}
+                {{ music.name }}
+                {{ music.url }} 
+                <a href="{{ path('deleting_script', {'idAlbum': album.id, 'idMusic': music.id} ) }}" class="btn btn-primary">Spprimer la musique de l'album</a> <br> <br>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Demande n'{{artistRequest.id}}
+{% endblock %}
+
+{% block body %}
+    <h1>Demande d'artiste numéro {{artistRequest.id}}</h1>
+    <p>{{artistRequest.artistName}}</p>
+    <p>{{artistRequest.user.email}}</p>
+    <p>{{artistRequest.user.id}}</p>
+    <p>{{artistRequest.status}}</p>
+    <p>{{artistRequest.description}}</p>
+
+    {% if artistRequest.status == 'ACCEPTED' %}
+        <div>Candidature acceptée par : {{ artistRequest.admin.email }}</div>    
+    {% elseif artistRequest.status == 'DENIED' %}
+    <div>Candidature refusée par : {{ artistRequest.admin.email }}</div>
+    {% else  %}
+        <a href="{{ path('response_accept', {'id': artistRequest.id}) }}" class="btn btn-success">Valider</a>
+        <a href="{{ path('response_deny', {'id': artistRequest.id}) }}" class="btn btn-danger">Refuser</a>
+    {% endif %}
+
+{% endblock %}

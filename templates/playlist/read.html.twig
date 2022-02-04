@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Playlist {{ playlist.name }}
+{% endblock %}
+
+{% block body %}
+    <h1>Playslist : {{ playlist.name }}</h1>
+
+    {% for music in playlist.music %}
+        {{ music.name }}
+        <a href="" class="btn btn-primary">Supprimer de la playlist</a>
+    {% endfor %}
+{% endblock %}

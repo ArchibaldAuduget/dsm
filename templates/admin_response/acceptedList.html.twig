@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Candidatures acceptées
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des candidatures acceptées</h1>
+
+    {% for request in artistRequest %}
+        <p>{{request.artistName }}</p>
+        <p>{{ request.user.email }}</p>
+        <p>{{ request.status }}</p>
+        <p>Accepté par : {{ request.admin.email }}</p>
+        <a href="{{ path('response_read', {'id': request.id}) }}" class="btn btn-primary">Voir</a>
+    {% endfor %}
+{% endblock %}

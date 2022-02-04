@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Liste des playlists
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des playlists</h1>
+
+    {% for playlist in playlists %}
+        {{ playlist.name }}
+        {% for music in playlist.music %}
+            {{ music.name }}
+            <a href="{{ path('delete_from_playlist', {'idMusic': music.id, 'idPlaylist': playlist.id  }) }}" class="btn btn-primary">Supprimer musique</a> <br>
+        {% endfor %}
+        <a href="" class="btn btn-primary">Modifier playlist</a>
+        <a href="{{ path('delete_playlist', {'id': playlist.id }) }}" class="btn btn-primary">Supprimer playlist</a>
+    {% endfor %}
+{% endblock %}
