@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Album : {{ album.name }} {% endblock %}
+
+{% block body %}
+    <h1>Album :{{ album.name }}</h1>
+    <p>{{ album.artist.id }}</p>
+    <p>{{ album.artist.name }}</p>
+    <p>{{ album.user.id }}</p>
+    <p>{{ album.user.email }}</p>
+
+    {% for music in album.musics %}
+        <p>{{ music.name }}</p>
+    {% endfor %}
+{% endblock %}

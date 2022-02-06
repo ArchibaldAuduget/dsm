@@ -1,24 +1,37 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">{% endblock %}
+
 {% block title %}
     Demande n'{{artistRequest.id}}
 {% endblock %}
 
 {% block body %}
-    <h1>Demande d'artiste numéro {{artistRequest.id}}</h1>
-    <p>{{artistRequest.artistName}}</p>
+{% include "shared/_adminNavbar.html.twig" %}
+<div class="admin_container">
+    {% include "shared/_msgFlash.html.twig" %}
+    <h1>Demande d'artiste N': {{artistRequest.id}}</h1>
+    <div class="request_top">
+        {% if artistRequest.status == 'ACCEPTED' %}<div class="alert alert-success read_request_status">{{artistRequest.status}}</div>
+        {% elseif artistRequest.status == 'DENIED' %}<div class="alert alert-danger read_request_status">{{artistRequest.status}}</div>
+        {% else  %}<div class="alert alert-warning read_request_status">{{artistRequest.status}}{% endif %}
+        <p class="read_request_name">{{artistRequest.artistName}}</p>
+    </div>
     <p>{{artistRequest.user.email}}</p>
-    <p>{{artistRequest.user.id}}</p>
-    <p>{{artistRequest.status}}</p>
-    <p>{{artistRequest.description}}</p>
+    <p>User ID : {{artistRequest.user.id}}</p>
+    <p class="request_desc">{{artistRequest.description}}</p>
 
     {% if artistRequest.status == 'ACCEPTED' %}
-        <div>Candidature acceptée par : {{ artistRequest.admin.email }}</div>    
+        <div><em>Candidature acceptée par : {{ artistRequest.admin.email }}</em></div>    
     {% elseif artistRequest.status == 'DENIED' %}
-    <div>Candidature refusée par : {{ artistRequest.admin.email }}</div>
+        <div><em>Candidature refusée par : {{ artistRequest.admin.email }}</em></div>
+        <a href="{{ path('remove_request', {'id': artistRequest.id }) }}" class="btn btn-primary">Supprimer la requête</a>
     {% else  %}
         <a href="{{ path('response_accept', {'id': artistRequest.id}) }}" class="btn btn-success">Valider</a>
         <a href="{{ path('response_deny', {'id': artistRequest.id}) }}" class="btn btn-danger">Refuser</a>
     {% endif %}
+    <br>
+    <a href="{{ path('response_list')}}" class="btn btn-primary">Revenir à la liste</a>
+</div>
 
 {% endblock %}

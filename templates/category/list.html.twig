@@ -1,16 +1,39 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">{% endblock %}
+
 {% block title %}
     Liste catégories
 {% endblock %}
 
 {% block body %}
-    <h1>Liste des catégories</h1>
-    <a href="{{ path('category_create') }}" class="btn btn-primary">Créer une nouvelle catégorie</a>
+{% include "shared/_adminNavbar.html.twig" %}
+<div class="admin_container">
+    {% include "shared/_msgFlash.html.twig" %}
+    <div class="c_list_container">
+        <h1>Catégories :</h1>
+        <a href="{{ path('category_create') }}" class="btn btn-success mt-4 mb-2">Créer une nouvelle catégorie</a>
 
-    {% for category in categories %}
-        <p>{{category.category }}</p>
-        <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-primary">Modifier</a>
-        <a href="{{ path('category_delete', {'id': category.id}) }}" class="btn btn-danger">Supprimer</a>
-    {% endfor %}
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <th scope="row">{{category.id}}</th>
+                        <td>{{category.category}}</td>
+                        <td class="c_list_button">
+                            <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-primary">Modifier</a>
+                            <a href="{{ path('category_delete', {'id': category.id}) }}" class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

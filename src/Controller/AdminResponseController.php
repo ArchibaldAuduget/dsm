@@ -118,4 +118,27 @@ class AdminResponseController extends AbstractController
             'artistRequest' => $artistRequest,
         ]);
     }
+
+    #[Route('/admin/response/{id}/remove', name: 'remove_request')]
+    public function remove($id, ArtistRequestRepository $artistRequestRepository, EntityManagerInterface $em)
+    {
+        $artistRequest = $artistRequestRepository->find($id);
+
+        if (!$artistRequest) {
+            $this->addFlash("danger", "La demande en question n'a pas été trouvée");
+            return $this->redirectToRoute('response_list');
+        }
+
+
+        if ($artistRequest->getStatus() !== 'DENIED') {
+            $this->addFlash("danger", "Une erreur s'est produite. Cette demande ne peut pas être supprimée");
+            return $this->redirectToRoute('response_list');
+        } 
+
+        $em->remove($artistRequest);
+        $em->flush();
+
+        $this->addFlash("success", "La demande d'artiste a bien été supprimée");
+        return $this->redirectToRoute('response_list');
+    }
 }

@@ -41,4 +41,16 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    #[Route('/privacy', name: 'privacy')]
+    public function privacy()
+    {
+        return $this->render('registration/privacy.html.twig');
+    }
+
+    #[Route('/agree', name: 'agree_terms')]
+    public function agreeTerms()
+    {
+        return $this->render('registration/agreeTerms.html.twig');
+    }
 }

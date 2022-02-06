@@ -1,16 +1,16 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">{% endblock %}
+
 {% block title %}
-    Demandes artiste
+    Demandes artiste en cours
 {% endblock %}
 
 {% block body %}
-    <h1>Liste des demandes artistes</h1>
-
-    {% for request in artistRequest %}
-        <p>{{request.artistName }}</p>
-        <p>{{ request.user.email }}</p>
-        <p>{{ request.status }}</p>
-        <a href="{{ path('response_read', {'id': request.id}) }}" class="btn btn-primary">Voir</a>
-    {% endfor %}
+{% include "shared/_adminNavbar.html.twig" %}
+<div class="admin_container">
+    {% include "shared/_msgFlash.html.twig" %}
+    <h1>Liste des demandes en attente</h1>
+    {% include "shared/_adminRequest.html.twig" %}
+</div>
 {% endblock %}

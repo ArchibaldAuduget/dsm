@@ -1,0 +1,29 @@
+<div class="nav_request">
+    <a href="{{ path('response_acceptedList')}}" class="btn btn-success">Acceptées</a>
+    <a href="{{ path('response_list')}}" class="btn btn-warning">En attente</a>
+    <a href="{{ path('response_deniedList')}}" class="btn btn-danger">Refusées</a>
+</div>
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nom d'artiste</th>
+      <th scope="col">Adresse email</th>
+      <th scope="col">ID User</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for request in artistRequest %}
+    <tr>
+      <th scope="row">{{request.id }}</th>
+      <td>{{request.artistName }}</td>
+      <td>{{ request.user.email }}</td>
+      <td>{{ request.user.id }}</td>
+      <td>{{ request.status }}</td>
+      <td><a href="{{ path('response_read', {'id': request.id}) }}" class="btn btn-primary">Voir</a></td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

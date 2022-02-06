@@ -1,0 +1,21 @@
+<nav id="sidebar">
+    <div id="logo_container">
+        <img class ="head_logo" src="{{ asset('img/logo2.png') }}" alt="logo icon">
+    </div>
+    <ul id="sb-list">
+        <li><a class="sb_button" href=""><div><i class="fas fa-star"></i></div><p>Go Premium</p></a></li><br>
+        <li><a class="sb_button" href="{{ path('admin_home') }}"><div><i class="fas fa-user-cog"></i></div><p>Panneau admin</p></a></li><br>
+        <li><a class="sb_button" href="{{ path('artist_profile') }}"><div><i class="fas fa-microphone-alt"></i></div><p>Profil artiste</p></a></li><br>
+        <li><a class="sb_button" href="{{ path('profile') }}"><div><i class="fas fa-user-lock"></i></div><p>Profil</p></a></li><br>
+        <li><a class="sb_button" href="{{ path('list_favorite') }}"><div><i class="fas fa-heart"></i></div><p>Favoris</p></a></li><br>
+        <li><a class="sb_button" href="{{ path('list_playlist') }}"><div><i class="fas fa-music"></i></div><p>Playlists</p></a></li><br>
+    </ul>
+</nav>
+
+<header id="main_header">
+    <a class="head_button" href="" >Parcourir</a>
+    <form action="">
+        <button id="search_button" type="submit"><i class="fas fa-search"></i></button>
+        <input id="searchbar" type="search" name="search" placeholder="Rechercher...">
+    </form>
+</header>

@@ -1,17 +1,26 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/connexionRegistration.css') }}">{% endblock %}
+
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+<div class="main_container">
+    <div class="cr_form">
+        {% include "shared/_msgFlash.html.twig" %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        <h1 class="cr_title">Inscrivez-vous !</h1>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            <p class="cr_redirect">En cochant la case ci dessous, vous acceptez les <a class="cr_redirect" href="{{ path('agree_terms') }}">conditions d'utilisation de DS Music</a> ainsi que notre 
+            <a class="cr_redirect" href="{{ path('privacy') }}">politique de confidentialité.</a></p>
+            <div class="agree_terms">{{ form_row(registrationForm.agreeTerms) }}</div>
+
+            <button type="submit" class="cr_button">S'inscrire</button>
+            <p class="cr_redirect">Déjà inscrit ? <a class="cr_redirect" href="{{ path('app_login') }}">Connectez vous !</a></p>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}

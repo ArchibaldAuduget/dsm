@@ -1,0 +1,249 @@
+:root {
+    --primary: #78ddd6;
+    --secondary: #ddb67c;
+    --white: white;
+    --grey: rgba(160, 160, 160, 0.3);
+    --black: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+html {
+    background-color: var(--white);
+}
+
+.main_container {
+    width: 96rem;
+    margin: 2rem 4rem 0rem 20rem;
+}
+
+/* ----------------- SIDEBAR ----------------- */
+
+#sidebar {
+    width: 16rem;
+    height: 100%;
+    position: fixed;
+    border-right: var(--grey) 1px solid;
+}
+
+.head_logo {
+    width: 14rem;
+    height: 14rem;
+    margin: -5rem 0 0rem 0.5rem;
+}
+
+#logo_container {
+    height: 18rem;
+}
+
+#sb-list {
+    margin-top: -10rem;
+}
+
+#sidebar ul li {
+    list-style-type: none;
+    font-size: 1.3rem;
+    font-family: 'Lato', sans-serif;
+    color: var(--black);
+    transition: all 0.3s ease 0s;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: var(--black);
+    transition: all 0.3s ease 0s;
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidebar ul li a p {
+    width: 11rem;
+    text-align: left;
+}
+
+#sidebar ul li:hover {
+    color: var(--primary);
+    
+}
+
+#sidebar ul li a:hover {
+    color: var(--primary);
+}
+
+
+/* ----------------- NAVBAR ----------------- */
+
+#main_header {
+    width: 104rem;
+    margin-left: 16rem;
+    height: 3rem;
+    border-bottom: var(--grey) 1px solid;
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+#searchbar {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    width: 84rem;
+    height: 3rem;
+    border: none;
+    border-bottom: var(--grey) 1px solid;
+}
+
+#search_button {
+    width: 3rem;
+    height: 2.5rem;
+    border:none;
+    font-size: 1.5rem;
+    background-color: var(--white);
+}
+
+#search_button:hover {
+    cursor: pointer;
+}
+
+.head_button {
+    width: 8rem;
+    text-decoration:none;
+    font-size: 1.25rem;
+    color: var(--black);
+    cursor: pointer;
+    line-height: 2.25;
+    transition: all 0.3s ease 0s;
+    /* border: var(--grey) 1px solid; */
+}
+
+.head_button:hover {
+    background-color: var(--black);
+    color: var(--primary);
+    text-shadow: var(--primary) -0.5px -0.5px;
+    border-bottom: var(--primary) 0.25rem solid;
+}
+
+/* ----------------- FOOTER ----------------- */
+
+footer {
+    width: 104rem;
+    margin-left: 16rem;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-around;
+    border-top: var(--grey) 1px solid;
+}
+
+footer div {
+    list-style: none;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+
+footer div ul {
+    /* margin: 2rem 2rem 0rem 0rem; */
+    list-style: none;
+}
+
+footer div p {
+    /* margin: 0rem 0rem 1rem 0rem; */
+    font-size: 1.3rem;
+    color: var(--black);
+}
+
+footer div ul li a {
+    /* margin-bottom: 2rem; */
+    text-decoration: none;
+    color: var(--black);
+    text-align: center;
+}
+
+footer div ul li a:hover {
+    color: var(--primary);
+}
+
+/* ----------------- TABLES VIEWS ----------------- */
+
+.nav_view {
+    width: 104rem;
+    height: 3rem;
+    margin-left: 16rem;
+    display: flex;
+    justify-content: left;
+}
+
+.a_view {
+    text-decoration: none;
+    width: 11rem;
+    height: 5rem;
+    text-align: center;
+    line-height: 5;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: var(--black);
+    border-bottom: var(--grey) 1px solid;
+    transition: all 0.3s ease 0s;
+}
+
+.a_view:hover {
+    color: var(--secondary);
+    background-color: var(--black);
+}
+
+#view_container {
+    width: 82rem;
+    margin-left: 4rem;
+    margin-top: 5rem;
+    line-height: 3;
+    font-family: 'Lato', sans-serif;
+}
+
+.view_title {
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+}
+
+.view_section {
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    transition: all 0.1s ease 0s;
+}
+
+.view_section:hover {
+    background-color: var(--grey);
+    /* font-weight: bold; */
+    border-radius: 0.5rem;
+    box-shadow: var(--grey) 0.1rem -0.1rem 0.1rem 0.1rem;
+}
+
+.large_section {
+    width: 32rem;
+}
+
+.medium_section {
+    width: 13rem;
+    padding-left: 1rem;
+}
+
+.small_section {
+    width: 6rem;
+    text-align: center;
+}
+
+.view_img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 10%;
+    margin-bottom: 0.5rem;
+}
+
+.view_cat {
+    font-size: 0.9rem;
+    line-height: 3.25;
+}

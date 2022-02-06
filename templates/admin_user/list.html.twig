@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste utilisateurs{% endblock %}
+
+{% block body %}
+    <h1>Liste de tous les utilisateurs</h1>
+
+    {% for user in users %}
+        {{ user.id }}
+        {{ user.email }}
+        <p>Artiste : {% if user.artist is defined %} OUI <a href="">Voir</a>{% else %} NON {% endif %}</p>    
+    {% endfor %}
+{% endblock %}

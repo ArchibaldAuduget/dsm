@@ -28,7 +28,7 @@ class CategoryController extends AbstractController
 
             $this->addFlash("success", "La catégorie à bien été ajoutée !");
 
-            return $this->redirectToRoute('category_create');
+            return $this->redirectToRoute('category_list');
 
         }
 

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste albums{% endblock %}
+
+{% block body %}
+<h1>Liste des albums</h1>
+
+{% for album in albums %}
+    {{ album.name }}
+    {{ album.artist }}
+    <a href="" class="btn btn-primary"></a>
+{% endfor %}
+{% endblock %}

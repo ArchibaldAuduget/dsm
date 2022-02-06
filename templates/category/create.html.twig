@@ -1,22 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">{% endblock %}
+
 {% block title %}Créer une catégorie{% endblock %}
 
 {% block body %}
-    <h1>Créer une nouvelle catégorie musicale</h1>
+{% include "shared/_adminNavbar.html.twig" %}
 
-    {{form_start(formview)}}
-    {{form_errors(formview)}}
-
-    <div class="row">
-        <div class="col">
-            {{form_row(formview.category)}}
-        </div>
-    </div>
-
-    <button class="btn btn-primary">
-        <i class="fas fa-save"> Créer la catégorie</i>   
-    </button>
-    {{ form_rest(formview) }}
-    {{form_end(formview)}}
+<div class="admin_container">
+    <h1>Nouvelle catégorie :</h1>
+{% include "shared/_categoryForm.html.twig" %}
+</div>
 {% endblock %}

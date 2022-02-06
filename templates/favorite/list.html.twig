@@ -3,11 +3,44 @@
 {% block title %}Mes favoris{% endblock %}
 
 {% block body %}
+<div class="main_container">
+    {% include "shared/_msgFlash.html.twig" %}
     <h1>Liste des favoris</h1>
+    <div id="view_container">
+        <section class="view_title">
+            <div class="small_section">TITRE</div>
+            <div class="large_section"></div>
+            <div class="medium_section">ARTISTE</div>
+            <div class="medium_section">ALBUM</div>
+            <div class="medium_section">GENRE</div>
+            <div class="small_section"><i class="fas fa-eye"></i></div>
+            <div class="small_section"></div>
+        </section>
+        {% for music in musics %}
+        <section class="view_section">
+            {% if music.album is not null %}
+                <div class="small_section"><img class="view_img" src="{{ music.album.img }}" alt=""></div>
+            {% else %}
+                <div class="small_section"><img class="view_img" src="{{ music.artist.img }}" alt=""></div>
+            {% endif %}
+            <div class="large_section">{{ music.name }}</div>
+            <div class="medium_section"> {{ music.artist.name}}</div>
+            {% if music.album is not null %}
+                <div class="medium_section">{{ music.album.name }}</div>
+            {% else %}
+                <div class="medium_section">  -  </div>
+            {% endif %}
+            <div class="medium_section view_cat"><em>{% for category in music.category %}{{ category.category }}, {% endfor %}</em></div>
+            <div class="small_section">{{music.views}}</div>
+            <a href="{{ path('delete_favorite', {'id': music.id}) }}" class="small_section"><i class="fas fa-trash"></i></a>
+        </section>
+        {% endfor %}
+    </div>
 
-    {% for music in musics %}
+    {# {% for music in musics %}
         {{ music.name }}
-        <a href="{{ path('delete_favorite', {'id': music.id}) }}" class="btn btn-primary">Retirer favoris</a>
+        <a href="{{ path('delete_favorite', {'id': music.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
         <br>
-    {% endfor %}
+    {% endfor %} #}
+</div>
 {% endblock %}

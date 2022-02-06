@@ -1,0 +1,74 @@
+/* ----------------- CONNEXION/REGISTRATION ----------------- */
+
+.cr_title {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.cr_form {
+    text-align: center;
+    font-size: 18px;
+    width: 30rem;
+    height: 40rem;
+    margin: 5rem 0rem 0rem 28rem;
+}
+
+.cr_label {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cr_input {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    width: 25rem;
+    height: 2.5rem;
+    margin: 1.2rem 0 1.2rem 0;
+    outline: none;
+}
+
+.cr_redirect {
+    font-family: 'lato', sans-serif;
+    text-decoration: none;
+}
+
+.cr_button {
+    margin: 2.5rem 0 2.5rem 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: var(--primary);
+    width: 10rem;
+    height: 3.5rem;
+    border-radius: 50px;
+    border: var(--black) 0.2px solid;
+    transition: all 0.3s ease 0s;
+}
+
+.cr_button:hover {
+    color: var(--primary);
+    text-shadow: var(--primary) -0.2px -0.2px;
+    background-color: var(--black);
+}
+
+.agree_terms {
+    text-align: left;
+    margin-left: 8rem;
+}
+
+/* ----------------- AGREE_TERMS/PRIVACY ----------------- */
+
+.agree_container {
+    width: 72rem;
+    margin: 2rem 16rem 0rem 32rem;
+    text-align: justify;
+}
+
+.agree-title {
+    text-align: center;
+    margin: 4rem 0rem 4rem 0rem;
+}

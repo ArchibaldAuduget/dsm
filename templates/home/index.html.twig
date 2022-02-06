@@ -3,5 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1>HOME</h1>
+<div class="admin_container">
+    {% include "shared/_msgFlash.html.twig" %}
+</div>
 {% endblock %}

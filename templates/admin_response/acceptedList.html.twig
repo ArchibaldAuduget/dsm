@@ -1,17 +1,16 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">{% endblock %}
+
 {% block title %}
     Candidatures acceptées
 {% endblock %}
 
 {% block body %}
+{% include "shared/_adminNavbar.html.twig" %}
+<div class="admin_container">
+    {% include "shared/_msgFlash.html.twig" %}
     <h1>Liste des candidatures acceptées</h1>
-
-    {% for request in artistRequest %}
-        <p>{{request.artistName }}</p>
-        <p>{{ request.user.email }}</p>
-        <p>{{ request.status }}</p>
-        <p>Accepté par : {{ request.admin.email }}</p>
-        <a href="{{ path('response_read', {'id': request.id}) }}" class="btn btn-primary">Voir</a>
-    {% endfor %}
+    {% include "shared/_adminRequest.html.twig" %}
+</div>
 {% endblock %}

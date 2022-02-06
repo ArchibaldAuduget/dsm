@@ -6,7 +6,7 @@
 
 {# param redirection du controller #}
 {% set route = '?search=' ~ app.request.query.get('search') %}
-
+<div class="main_container">
 {# Affichage recherche artiste #}
 {% if artist is not null %}
     {% for a in artist %}
@@ -48,4 +48,5 @@
         <br>
     {% endfor %}
 {% endif %}
+</div>
 {% endblock %}

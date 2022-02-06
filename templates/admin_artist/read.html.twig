@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Profil artiste de {{ artist.name }} {% endblock %}
+
+{% block body %}
+    <h1>Profil artiste de {{ artist.name }}</h1>
+
+    {{artist.id}}
+    {{artist.user.id}}
+    {{artist.user.email}}
+
+    {% for music in artist.music %}
+        {{ music.name }}
+    {% endfor %}
+{% endblock %}

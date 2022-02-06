@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste artistes{% endblock %}
+
+{% block body %}
+<h1>Liste des artistes</h1>
+
+    {% for artist in artists %}
+        {{ artist.id }}
+        {{ artist.user.id }}
+        {{ artist.name }}
+        <a href="" class="btn btn-primary">Voir musiques</a>
+    {% endfor %}
+{% endblock %}

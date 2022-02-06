@@ -1,0 +1,15 @@
+    {{form_start(formview)}}
+    {{form_errors(formview)}}
+
+    <div class="row mt-4 mb-1">
+        <div class="col">
+            {{form_row(formview.category)}}
+        </div>
+    </div>
+
+    <button class="btn btn-primary">
+        <i class="fas fa-save"></i> &nbsp; Sauvegarder la catégorie
+    </button> &nbsp;
+    <a href="{{ path('category_list') }}" class="btn btn-primary">Revenir à la liste</a>
+    {{ form_rest(formview) }}
+    {{form_end(formview)}}

@@ -1,0 +1,58 @@
+/* ----------------- GENERAL ----------------- */
+
+#adminNavbar {
+    width: 104rem;
+    margin-left: 16rem;
+    background-color: var(--black);
+}
+
+.admin_container {
+    width: 96rem;
+    margin: 2rem 4rem 0rem 20rem;
+}
+
+/* ----------------- REQUEST LIST ----------------- */
+
+.nav_request {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+}
+
+/* ----------------- REQUEST READ ----------------- */
+
+.request_top {
+    display: flex;
+    justify-content: left;
+    gap: 2.5rem;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.read_request_name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 1.35rem;
+}
+
+.read_request_status {
+    line-height: 2.75;
+}
+
+.request_desc {
+    text-align: center;
+    margin: 2.5rem 8rem 2.5rem 0rem;
+}
+
+/* ----------------- CATEGORY LIST ----------------- */
+
+.c_list_container {
+    width: 62rem;
+}
+
+.c_list_button {
+    display: flex;
+    justify-content: right;
+    margin-right: 2rem;
+    gap: 0.5rem;
+}

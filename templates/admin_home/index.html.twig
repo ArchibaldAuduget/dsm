@@ -2,13 +2,9 @@
 
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">{% endblock %}
 
-{% block title %}Modifier une catégorie{% endblock %}
+{% block title %}Administration{% endblock %}
 
 {% block body %}
 {% include "shared/_adminNavbar.html.twig" %}
 
-<div class="admin_container">
-    <h1>Modifier catégorie :</h1>
-{% include "shared/_categoryForm.html.twig" %}
-</div>
 {% endblock %}
